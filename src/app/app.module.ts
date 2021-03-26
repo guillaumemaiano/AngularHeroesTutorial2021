@@ -7,14 +7,16 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 import { MessagesComponent } from './messages/messages.component';
-import { AppRoutingModule } from './app-routing.module'; // <-- so, NgModel lives here, huh.
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component'; // <-- so, NgModel lives here, huh.
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     HeroDetailsComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
