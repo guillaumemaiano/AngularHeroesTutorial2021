@@ -12,4 +12,7 @@ export class HeroSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  search(terms: String): void {
+
+  }
 }
