@@ -41,14 +41,13 @@ export class HeroService {
   }
 
   /** ADD hero by passing an non-ID'ed Hero object.*/
-  addHero(hero: Hero): Observable<Hero> {
-    const url = `${this.heroesUrl}`;
-    return this.http.post<Hero>(url, hero, this.httpOptions)
-    .pipe(
-      tap(_ => this.log(`posted hero name=${hero.name}`)),
-      catchError(this.handleError<Hero>(`postedHero id=${hero.name}`))
-    );
-   }
+/** POST: add a new hero to the server */
+addHero(hero: Hero): Observable<Hero> {
+  return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+    tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+    catchError(this.handleError<Hero>('addHero'))
+  );
+}
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions)
     .pipe(
