@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
@@ -12,6 +12,7 @@ import { HeroService } from '../hero.service';
 export class HeroSearchComponent implements OnInit {
 
   heroes$: Observable<Hero[]>;
+  private searchTerms = new Subject<string>();
 
   constructor(private heroService: HeroService) { 
     // needed so it compiles
@@ -22,7 +23,7 @@ export class HeroSearchComponent implements OnInit {
     this.heroes$ = new Observable<Hero[]>();
   }
 
-  search(terms: String): void {
-
+  search(term: string): void {
+    this.searchTerms.next(term);
   }
 }
