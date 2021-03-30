@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-hero-search',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroSearchComponent implements OnInit {
 
-  constructor() { }
+  heroes$: Observable<Hero[]>;
+
+  constructor(private heroService: HeroService) { 
+    // needed so it compiles
+    this.heroes$ = new Observable<Hero[]>();
+  }
 
   ngOnInit(): void {
+    this.heroes$ = new Observable<Hero[]>();
   }
 
   search(terms: String): void {
