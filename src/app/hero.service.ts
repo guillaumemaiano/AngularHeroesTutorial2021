@@ -40,6 +40,9 @@ export class HeroService {
    );
   }
 
+  searchHeroes(term: string): Observable<Hero[]> {
+    return of([]);
+  }
   /** ADD hero by passing an non-ID'ed Hero object.*/
 addHero(hero: Hero): Observable<Hero> {
   return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
