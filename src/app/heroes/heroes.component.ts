@@ -30,4 +30,15 @@ export class HeroesComponent implements OnInit {
         this.heroes.push(hero);
       });
   }
+
+  delete(heroId: number) {
+
+
+    const heroesWithId = this.heroes.filter(hero => hero.id == heroId);
+    const heroFound = heroesWithId[0];
+    this.heroService.deleteHero(heroId)
+    .subscribe( _ => {
+      this.heroes = this.heroes.filter(h => h !== heroFound);
+     });
+  }
 }
