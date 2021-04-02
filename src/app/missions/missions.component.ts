@@ -14,6 +14,7 @@ export class MissionsComponent implements OnInit {
 
   model = { id: 18, name: 'Dr IQ', powers: this.powers[0], alterEgo: 'Chuck Overstreet', mission: Mission.killteam} as Hero;
 
+  missionRange = Object.keys(Mission);
   submitted = false;
 
   onSubmit() { this.submitted = true; }
