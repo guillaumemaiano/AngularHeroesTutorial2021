@@ -18,7 +18,7 @@ export class MissionsComponent implements OnInit {
   submitted = false;
 
   onSubmit() { this.submitted = true; }
-
+// https://angular.io/guide/forms#track-control-states
   // TODO: Remove this when we're done
   get diagnostic() { return JSON.stringify(this.model); }
 
